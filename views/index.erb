@@ -1,0 +1,44 @@
+<h1>Index woooo</h1>
+
+<section>
+  <article class="row">
+    <!-- Columns shoud add up to 12 -->
+    <div class="col-md-6">
+
+      <h1>Hey, welcome!</h1>
+      <h2>The Happy Things API is here!</h2>
+    </div>
+    <div class="col-md-6">
+      <h3>Happy Things</h3>
+        <div id="happy_things">
+
+        </div>
+
+      <h3>Kittens</h3>
+        <div id="kitten_things">
+
+        </div>
+    </div>
+  </article>
+</section>
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $.getJSON("/api", function(data) {
+
+      for (var item in data) {
+          $("#happy_things").append("<li>" + data[item] + "</li>")
+      }
+    });
+
+    $.getJSON("/api-kittens", function(data) {
+
+      for (var item in data) {
+          $("#kitten_things").append("<li>" + data[item] + "</li>")
+      }
+    });
+
+    
+  });
+</script>
